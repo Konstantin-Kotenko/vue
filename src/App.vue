@@ -1,31 +1,38 @@
 <template>
 <div id='app'>
-  <h1>{{ title }}</h1>
-<StarRating :rating="4.5" />
+  <ApartmentsItem
+  :descr="apartment.descr"
+  :price="apartment.price"
+  :rating="apartment.rating"
+  imgSrc="https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885__480.jpg"
+  />
 </div>
   </template>
 
 <script>
-import StarRating from './components/StarRating.vue'
-
+import ApartmentsItem from './components/apartment/ApartmentsItem.vue';
 export default {
   name: 'App',
   components: {
-    StarRating
+    ApartmentsItem
   },
   data(){
-    return{
-      amountOfClicks:0
-    }
-  },
-  computed: {
-    title(){
-      return `Amount of clicks ${this.amountOfClicks}`
-    }
-  },
-  methods:{
-    increment(){
-      this.amountOfClicks +=1
+    return {
+      apartment: {
+        id: '1',
+        title: 'Lorem ipsum dolor sit amet consectetur adipisicing elit.',
+        descr: 'Роскошные апартаменты в скайндинавском стиле с панорамным видом на реку и бесплатным Wi-Fi.',
+        price: 2032,
+        rating: 4.7,
+        location:{
+          city: 'Kherson',
+        },
+        owner:{
+          name: 'Ellen',
+          phone: '111-111-1111',
+          email: 'Tracey.Morar86@hotmail.com',
+        }
+      }
     }
   }
 }
@@ -33,7 +40,7 @@ export default {
 
 <style>
 #app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
+  font-family: Montserrat, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
