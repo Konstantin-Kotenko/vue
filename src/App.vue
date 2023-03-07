@@ -1,38 +1,20 @@
 <template>
 <div id='app'>
-  <ApartmentsItem
-  :descr="apartment.descr"
-  :price="apartment.price"
-  :rating="apartment.rating"
-  imgSrc="https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885__480.jpg"
-  />
+  <ApartmentsList :items="apartments"/>
 </div>
   </template>
 
 <script>
-import ApartmentsItem from './components/apartment/ApartmentsItem.vue';
+import ApartmentsList from './components/apartment/ApartmentsList.vue';
+import apartments from './components/apartment/apartments'
 export default {
   name: 'App',
   components: {
-    ApartmentsItem
+    ApartmentsList
   },
-  data(){
+  data() {
     return {
-      apartment: {
-        id: '1',
-        title: 'Lorem ipsum dolor sit amet consectetur adipisicing elit.',
-        descr: 'Роскошные апартаменты в скайндинавском стиле с панорамным видом на реку и бесплатным Wi-Fi.',
-        price: 2032,
-        rating: 4.7,
-        location:{
-          city: 'Kherson',
-        },
-        owner:{
-          name: 'Ellen',
-          phone: '111-111-1111',
-          email: 'Tracey.Morar86@hotmail.com',
-        }
-      }
+      apartments,
     }
   }
 }
