@@ -48,6 +48,7 @@ import StarRating from '../StarRating.vue'
     position: relative;
     max-width: 350px;
     padding: 0 15px; 
+    margin-bottom: 30px;
 
     &__inner {
         position: relative;
