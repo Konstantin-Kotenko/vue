@@ -1,3 +1,4 @@
+<!-- eslint-disable vue/no-deprecated-v-on-native-modifier -->
 <template>
   <div id='app'>
     <ApartmentsList :items="apartments">
@@ -8,6 +9,7 @@
             :rating="apartment.rating"
             :imgSrc="apartment.imgUrl"
             :price="apartment.price"
+            @click.native="handleItemClick"
         />
       </template>
     </ApartmentsList>
@@ -27,6 +29,11 @@ export default {
   data() {
     return {
       apartments,
+    }
+  },
+  methods:{
+    handleItemClick() {
+      console.log('item click')
     }
   }
 }
