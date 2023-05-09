@@ -1,6 +1,7 @@
-<!-- eslint-disable vue/no-deprecated-v-on-native-modifier -->
 <template>
   <div id='app'>
+    <h2>{{ text }}</h2>
+    <CustomInput v-model="text"/>
     <ApartmentsList :items="apartments">
       <template v-slot:apartment="{ apartment }">
         <ApartmentsItem
@@ -9,7 +10,7 @@
             :rating="apartment.rating"
             :imgSrc="apartment.imgUrl"
             :price="apartment.price"
-            @click.native="handleItemClick"
+            @click="handleItemClick"
         />
       </template>
     </ApartmentsList>
@@ -17,18 +18,21 @@
 </template>
 
 <script>
-import ApartmentsList from './components/apartment/ApartmentsList.vue'
-import ApartmentsItem from './components/apartment/ApartmentsItem.vue'
+import ApartmentsList from './components/apartment/ApartmentsList'
+import ApartmentsItem from './components/apartment/ApartmentsItem'
+import CustomInput from './components/shared/CustomInput'
 import apartments from './components/apartment/apartments'
 export default {
   name: 'App',
   components: {
     ApartmentsList,
-    ApartmentsItem
+    ApartmentsItem,
+    CustomInput
   },
   data() {
     return {
-      apartments,
+      text: '',
+      apartments
     }
   },
   methods:{
